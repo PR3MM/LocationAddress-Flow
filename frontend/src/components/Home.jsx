@@ -1,5 +1,6 @@
 import React from 'react'
 import Map from './Map'
+import Form from './Form'
 
 const Home = () => {
   return (
@@ -7,7 +8,7 @@ const Home = () => {
   <div class="p-4 h-screen">
     <Map/>
   </div>
-  <div class="p-4">Right Section</div>
+  <div class="p-4"> <Form/> </div>
 </div>
 
   )

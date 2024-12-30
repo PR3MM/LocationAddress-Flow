@@ -1,9 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Layout from './Layout'; 
+import AddressProvider from './context/AddressContext';
 
 function App() {
   return (
+    <AddressProvider>
+
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -12,6 +15,7 @@ function App() {
         </Route>
       </Routes>
     </Router>
+    </AddressProvider>
   );
 }
 
