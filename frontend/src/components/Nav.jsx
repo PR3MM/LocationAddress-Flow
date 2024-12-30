@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom'; 
 
 const Nav = () => {
   return (
@@ -8,8 +8,7 @@ const Nav = () => {
         <div className="container mx-auto flex justify-between items-center py-4">
           <h1 className="text-xl font-bold">Location Flow</h1>
           <div>
-            {/* Use NavLink for navigation */}
-            <NavLink
+            {/* <NavLink
               to="/"
               className={({ isActive }) =>
                 `mx-2 ${isActive ? 'text-blue-500 font-semibold' : ''}`
@@ -24,7 +23,7 @@ const Nav = () => {
               }
             >
               Saved Addresses
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </nav>

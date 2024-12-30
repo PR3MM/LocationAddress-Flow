@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useAddress } from '../context/AddressContext';
 
 const Form = () => {
     const { updateAddress, updateCoordinates } = useAddress();
     const { address, coordinates } = useAddress();
+    const {localaddress} = useAddress();
+    const {updateLocalAddress} = useAddress();
     const [formData, setFormData] = useState({
         flatNumber: '',
         landmark: '',
@@ -11,12 +13,32 @@ const Form = () => {
         addressType: 'home'
     });
 
+    useEffect(() => {
+        const savedAddress = localStorage.getItem('address');
+        const savedAddressType = localStorage.getItem('addressType');
+
+        updateLocalAddress(savedAddress);
+        
+        if (savedAddress && savedAddressType) {
+            const [flatNumber, area, landmark] = savedAddress.split(', ');
+            setFormData({
+                flatNumber: flatNumber || '',
+                area: area || '',
+                landmark: landmark || '',
+                addressType: savedAddressType
+            });
+            updateAddress(savedAddress);
+        }
+    }, [updateAddress]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const fullAddress = `${formData.flatNumber}, ${formData.area}, ${formData.landmark}`.trim();
         updateAddress(fullAddress);
-        
-        // Trigger geocoding in Map component
+
+        localStorage.setItem('address', fullAddress);
+        localStorage.setItem('addressType', formData.addressType);
+
         const event = new CustomEvent('formAddressSubmitted', { 
             detail: { 
                 address: fullAddress 
