@@ -1,35 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useAddress } from '../context/AddressContext';
-import Form from './Form'; // Import Form component
-import SubmittedAddresses from './SubmittedAddresses'; // Import SubmittedAddresses component
+import Form from './Form';
+import SubmittedAddresses from './SubmittedAddresses';
 
 const Right = () => {
-  const [currentView, setCurrentView] = useState('form'); // Default view is 'form'
-  
-  // Switch view between 'form' and 'submittedAddresses'
+  const [currentView, setCurrentView] = useState('form');
+
   const toggleView = (view) => {
     setCurrentView(view);
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 bg-white rounded-lg shadow-md">
-      {/* Header with the toggle buttons */}
-      <div className="mb-4 flex justify-between">
+    <div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow-xl sm:w-full md:w-2/3 lg:w-full">
+      <div className="mb-6 flex justify-center gap-8">
         <button
           onClick={() => toggleView('form')}
-          className={`text-sm font-medium ${currentView === 'form' ? 'text-blue-600' : 'text-gray-500'}`}
+          className={`text-sm font-semibold ${currentView === 'form' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-gray-600 hover:text-indigo-600'}`}
         >
           Form
         </button>
         <button
           onClick={() => toggleView('submittedAddresses')}
-          className={`text-sm font-medium ${currentView === 'submittedAddresses' ? 'text-blue-600' : 'text-gray-500'}`}
+          className={`text-sm font-semibold ${currentView === 'submittedAddresses' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-gray-600 hover:text-indigo-600'}`}
         >
           Submitted Addresses
         </button>
       </div>
 
-      {/* Render Form or Submitted Addresses based on currentView */}
       {currentView === 'form' ? (
         <Form />
       ) : (

@@ -1,7 +1,7 @@
 import React from 'react'
 import Map from './Map'
 import Form from './Form'
-import Right from './right'
+import Right from './Right'
 
 const Home = () => {
   return (
@@ -9,7 +9,8 @@ const Home = () => {
   <div class="p-4 h-screen">
     <Map/>
   </div>
-  <div class="p-4"> <Right/> </div>
+  <div class="p-4"> <Right/> 
+  </div>
 </div>
 
   )

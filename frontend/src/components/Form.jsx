@@ -22,9 +22,9 @@ const Form = () => {
         if (savedAddress && savedAddressType) {
             const [flatNumber, area, landmark] = savedAddress.split(', ');
             setFormData({
-                flatNumber: flatNumber || '',
-                area: area || '',
-                landmark: landmark || '',
+                flatNumber: '',
+                area:  '',
+                landmark: '',
                 addressType: savedAddressType
             });
             updateAddress(savedAddress);
@@ -33,7 +33,7 @@ const Form = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const fullAddress = `${formData.flatNumber}, ${formData.area}, ${formData.landmark}`.trim();
+        const fullAddress = `${formData.flatNumber} ${formData.area} ${formData.landmark}`.trim();
         updateAddress(fullAddress);
 
         localStorage.setItem('address', fullAddress);
