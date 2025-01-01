@@ -36,8 +36,11 @@ const Form = () => {
         const fullAddress = `${formData.flatNumber} ${formData.area} ${formData.landmark}`.trim();
         updateAddress(fullAddress);
 
-        localStorage.setItem('address', fullAddress);
-        localStorage.setItem('addressType', formData.addressType);
+        const existingAddresses = JSON.parse(localStorage.getItem('addresses')) || [];
+
+        const updatedAddresses = [...existingAddresses, { address: fullAddress, type: formData.addressType }];
+
+        localStorage.setItem('addresses', JSON.stringify(updatedAddresses));
 
         const event = new CustomEvent('formAddressSubmitted', { 
             detail: { 
