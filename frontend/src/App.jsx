@@ -10,7 +10,7 @@ function App() {
 
 useErrorLogger();
 
-throw new Error('Test Error');
+// throw new Error('Test Error');
 
   return (
     <AddressProvider>
