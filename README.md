@@ -66,7 +66,6 @@ A feature-rich React application for managing addresses with seamless Google Map
 - **Address Form**: Submit your addresses easily.
 - **Interactive Map**: Visualize real-time and submitted locations.
 - **Saved Addresses**: Manage your entries seamlessly.
-
 ![image](https://github.com/user-attachments/assets/4fadd27d-7df1-44a8-bb13-fceba940bd59)
 ![image](https://github.com/user-attachments/assets/2a75f1cb-7c3b-4d00-b895-9106cfd532cf)
 
